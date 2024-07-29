@@ -299,6 +299,10 @@
   height: 75px;
 }
 
+.videoImage {
+  height: 75px;
+}
+
 /* Loader styles */
 .loader {
   border: 10px solid #f3f3f3;
@@ -423,6 +427,15 @@
     /* top: 25px; */
     top: 5%;
   }
+}
+
+.videoCarousel {
+  width: auto;
+}
+
+.popular .container {
+  max-width: 1200px;
+  margin: 0 auto; 
 }
 
 /* SMILES Section  */
