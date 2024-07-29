@@ -191,6 +191,10 @@
 .quotes {
   height: 392px;
   background-color: var(--main-color);
+  padding-top: 125px;
+  padding-right: 100px;
+  padding-left: 100px;
+  color: var(--color-white);
 }
 
 .quotes .carousel-item img {
@@ -256,6 +260,9 @@
     --arrow-move-x: 13px;
   }
   .quotes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: auto;
   }
   .quotes .carousel-item img {
@@ -280,6 +287,31 @@
     padding: 0px;
     padding-top: 24px;
   }
+}
+
+.custom-prev, .custom-next {
+  background-color: var(--main-color);
+  border: none;
+  color: var(--color-white);
+}
+
+.quoteImage {
+  height: 75px;
+}
+
+/* Loader styles */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #C271FF;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* POPULAR SECTION  */
