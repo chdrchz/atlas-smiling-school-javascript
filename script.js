@@ -225,12 +225,14 @@ function getCourseData(searchValue = '', selectedTopic = '', sort = '') {
       sort: sort,
     },
     success: function (response) {
-      console.log(response);
-
       var courses = response.courses;
 
       // Clear the existing videos
       $(".apiVideos").empty();
+
+      // dynamically display video count
+      videoCount = courses.length;
+      $(".videoCount").text(`${videoCount} videos`);
 
       // Loop through all videos
       courses.forEach(function (video) {
