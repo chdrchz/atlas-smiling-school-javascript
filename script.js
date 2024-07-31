@@ -19,7 +19,7 @@ function onClickTopic() {
   $(".sortOptions").on("click", "a", function() {
     var selectedTopic = $(this).text();
     $("#selectedTopic").text(selectedTopic);
-    getCourseData('', selectedTopic, ''); // Pass default values for searchValue and sort
+    getCourseData('', selectedTopic, '');
   });
 }
 
