@@ -1,25 +1,41 @@
+// IT'S READY!!!!!!!!!!!!!!!!!
 $(document).ready(function () {
   getQuoteData();
   getVideoData();
   getCourseData();
   onInput();
   onClickTopic();
+  onClickSortBy();
 });
 
-// Keyword search click event
 function onInput() {
   $(".searchInput").on("input", function() {
     var searchValue = $(this).val();
-    var selectedTopic = $(".sortOptions .selected").text();
-    getCourseData(searchValue, selectedTopic, '');
+    var selectedTopic = $("#selectedTopic").text();
+    var sort = $("#sortBy").text();
+    getCourseData(searchValue, selectedTopic, sort);
   });
 }
 
+// Topic sort click event
 function onClickTopic() {
   $(".sortOptions").on("click", "a", function() {
     var selectedTopic = $(this).text();
     $("#selectedTopic").text(selectedTopic);
-    getCourseData('', selectedTopic, '');
+    var searchValue = $(".searchInput").val();
+    var sort = $("#sortBy").text();
+    getCourseData(searchValue, selectedTopic, sort);
+  });
+}
+
+// Sort by click event
+function onClickSortBy() {
+  $(".sortBy").on("click", "a", function() {
+    var sortBy = $(this).text();
+    $("#sortBy").text(sortBy);
+    var searchValue = $(".searchInput").val();
+    var selectedTopic = $("#selectedTopic").text();
+    getCourseData(searchValue, selectedTopic, sortBy);
   });
 }
 
@@ -207,8 +223,6 @@ function getCourseData(searchValue = '', selectedTopic = '', sort = '') {
       console.log(response);
 
       var courses = response.courses;
-      var topics = response.topics;
-      var sorts = response.sorts;
 
       // Clear the existing videos
       $(".apiVideos").empty();
