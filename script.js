@@ -2,7 +2,26 @@ $(document).ready(function () {
   getQuoteData();
   getVideoData();
   getCourseData();
+  onInput();
+  onClickTopic();
 });
+
+// Keyword search click event
+function onInput() {
+  $(".searchInput").on("input", function() {
+    var searchValue = $(this).val();
+    var selectedTopic = $(".sortOptions .selected").text();
+    getCourseData(searchValue, selectedTopic, '');
+  });
+}
+
+function onClickTopic() {
+  $(".sortOptions").on("click", "a", function() {
+    var selectedTopic = $(this).text();
+    $("#selectedTopic").text(selectedTopic);
+    getCourseData('', selectedTopic, ''); // Pass default values for searchValue and sort
+  });
+}
 
 // Show or hide the loader, based on true or false
 function showOrHideLoader(shouldShow) {
@@ -138,9 +157,9 @@ function getVideoData() {
     url: "https://smileschool-api.hbtn.info/popular-tutorials",
     type: "GET",
     success: function (response) {
-      console.log(response);
 
       response.forEach(function (video) {
+        // Create HTML
         var item = createVideoCard(video);
         $(".videoCarousel").append(item);
       });
@@ -175,19 +194,28 @@ function getVideoData() {
 }
 
 // Gets courses from api using ajax
-function getCourseData(searchValue, topic, sort) {
+function getCourseData(searchValue = '', selectedTopic = '', sort = '') {
   $.ajax({
     url: "https://smileschool-api.hbtn.info/courses",
     type: "GET",
     data: {
       q: searchValue,
-      topic: topic,
+      topic: selectedTopic,
       sort: sort,
     },
     success: function (response) {
       console.log(response);
+
       var courses = response.courses;
+      var topics = response.topics;
+      var sorts = response.sorts;
+
+      // Clear the existing videos
+      $(".apiVideos").empty();
+
+      // Loop through all videos
       courses.forEach(function (video) {
+        // Create HTML for the video card
         var item = createVideoCard(video);
         $(".apiVideos").append(item);
       });
