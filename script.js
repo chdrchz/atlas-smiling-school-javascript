@@ -8,6 +8,11 @@ $(document).ready(function () {
   onClickSortBy();
 });
 
+
+// I really do not like that this is in 3 functions for the filtering
+// but I don't really know how to make this less redundant
+
+// Keyword search on input
 function onInput() {
   $(".searchInput").on("input", function() {
     var searchValue = $(this).val();
