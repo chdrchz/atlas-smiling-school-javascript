@@ -2,6 +2,8 @@
 
 These group of web pages were coded from scratch with the help of the Boostrap Framework and based on some design models given on Figma.
 
+View the completed page on github pages: (https://chdrchz.github.io/atlas-smiling-school-javascript/homepage.html)
+
 [Figma Homepage](https://www.figma.com/file/QYQqMYbdpAHL5xTclwJKSI/Homepage)
 
 [Figma Pricing](https://www.figma.com/file/KLAI53jdYpfFNEy0O79ymB/Pricing)
@@ -74,4 +76,4 @@ The Holberton Smiling School web pages were developed by sections using the Boot
 
 # Author:
 
-Jhoan Zamora: [jzamora5](https://github.com/jzamora5)
+Savanna Davis: [chdrchz]((https://github.com/chdrchz))
